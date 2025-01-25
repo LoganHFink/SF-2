@@ -21,5 +21,3 @@ while True:
             output = output + " " + str(round(flow,1))
         print(output)
         break
-        
-    print(flows)
