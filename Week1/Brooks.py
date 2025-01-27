@@ -5,7 +5,9 @@ flows = []
 for stream in range(streams):
     flows.append(float(input("flow: ")))
 
-while True:
+done = False
+
+while not done:
     choice = float(input("choice: "))
     if choice == 99: # split
         stream_index = int(input("Stream index: ")) -1
@@ -20,4 +22,4 @@ while True:
         for flow in flows:
             output = output + " " + str(round(flow,1))
         print(output)
-        break
+        done = True
