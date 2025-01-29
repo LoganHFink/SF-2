@@ -21,5 +21,5 @@ while not done:
         output = ""
         for flow in flows:
             output = output + " " + str(round(flow,1))
-        print(output)
+        print(output[1:])
         done = True
