@@ -15,12 +15,12 @@ def pillar_from(platforms, height, horizontal_pos):
     :param platforms: a list of platforms (as lists)
     :param height: vertical position
     :param horizontal_pos: horizontal position
-    :return : minimum length of pillar from heigh and horizontal_pos to the platform/ground below
+    :return : minimum length of pillar from height and horizontal_pos to the platform/ground below
     '''
     for platform in platforms:
         bottom = 0              
         if (platform[0] < height and covers(platform, horizontal_pos)):
-            bottom = platform[1]
+            bottom = platform[0]
     return height - bottom
 
 
