@@ -24,68 +24,59 @@ def displayBoard(board_lst):
 
 def tileLabels(n):
     output = [str(x) for x in range(1,n*n)]
-    output += ' '
+    output.append('  ')
     return output
-            
-# print(tileLabels(3))
 
 def getNewPuzzle(n):
     tiles = tileLabels(n)
-    tiles = [t + ' ' for t in tiles if len(t) == 1 and t != ' ']
-    tiles.append('  ')
-    random.shuffle(tiles)
+    new_tiles = []
+    for t in tiles:
+        if len(t) == 1:
+            t += ' '
+        new_tiles.append(t)
+    random.shuffle(new_tiles)
 
-    output = []
+    board = []
 
     slice_start = 0
-    slice_end = n
     for _ in range(n):    
-        output.append(tiles[slice_start:slice_end])
+        board.append(new_tiles[slice_start:slice_start+n])
         slice_start += n 
-        slice_end += n
-    return output
-
-# print(getNewPuzzle(3))
+    return board
 
 def findEmptyTile(board):
     n = len(board)
-    for y in range(n):
-        for x in range(n):
-            if board[y][x] == '  ':
-                return (x,y)
-
-# board = getNewPuzzle(3)
-# displayBoard(board)
-# print(findEmptyTile(board))
+    for row in range(n):
+        for column in range(n):
+            if board[row][column] == '  ':
+                return (row,column)
 
 def nextMove(board):
     n = len(board)
     valid_moves = ['W','A','S','D']
-    emptyx,emptyy = findEmptyTile(board)
-    # print(emptyx,emptyy)
+    emptyy,emptyx = findEmptyTile(board)
     if emptyx == n-1:
-        # print('right')
         valid_moves[3] = ' '
     if emptyx == 0:
-        # print('left')
         valid_moves[1] = ' '
     if emptyy == n-1:
-        # print('bottom')
         valid_moves[2] = ' '
     if emptyy == 0:
-        # print('top')
         valid_moves[0] = ' '
 
     print(f'                          ({valid_moves[0]})')
     print(f'Enter WASD (or QUIT): ({valid_moves[1]}) ({valid_moves[2]}) ({valid_moves[3]})')
-    move = input('>')
-    if move.upper() == 'QUIT':
+    move = input('> ').upper()
+    if move == 'QUIT':
         sys.exit()
-    if move.upper() in valid_moves:
-        print(move)
+    if move in valid_moves:
+        return move
 
+# Program start:
 
-board = getNewPuzzle(3)
+board = getNewPuzzle(4)
 displayBoard(board)
-while True:
+
+over = False
+while not over:
     nextMove(board)
