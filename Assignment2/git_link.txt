@@ -1,0 +1,6 @@
+Logan Fink
+2435373
+
+Git link to part 2: https://github.com/LoganHFink/SF-2/blob/main/Assignment2/sliding_puzzle_part2.py
+
+Git link to full folder: https://github.com/LoganHFink/SF-2/tree/main/Assignment2
