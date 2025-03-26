@@ -1,0 +1,10 @@
+john, lasseter, 97, 100, 80
+bob, later, 37, 57, 70
+joe, laser, 17, 130, 40
+job, lae, 91, 100, 89
+bobby, lass, 92, 101, 80
+johnny, aster, 73, 100, 80
+jon, asser, 45, 40, 80
+jonnn, ler, 93, 100, 80
+bohb, late, 37, 100, 85
+bomb, ter, 97, 106, 80
