@@ -1,0 +1,32 @@
+# Trace the following code and show the outputs for tile_a, tile_b and tile_a >= tile_b:
+
+class Tile:
+    def __init__(self,interior:int):
+        self.interior = [interior]
+
+    def combine(self,other_tile):
+        self.interior += other_tile.interior
+
+    def __repr__(self):
+        output = ''
+        for item in self.interior:
+            output += '[' + str(item) + ']'
+        return output
+    
+    def __ge__(self, other_tile):
+        output = True
+        for i in range(len(self.interior)):
+            if i < other_tile.interior[i]:
+                output = False
+        return output
+
+tile_a = Tile(1)
+tile_a.combine(Tile(2))
+tile_b = Tile(3)
+tile_b.combine(tile_a)
+print(tile_a)
+#[1][2]
+print(tile_b)
+#[3][1][2]
+print(tile_a >= tile_b)
+#False since the tiles in a: [1][2] aren't >= the first 2 tiles in b: [3][1]
