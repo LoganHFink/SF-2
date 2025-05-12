@@ -3,7 +3,7 @@ Write a iterable PyramidIterable(string) that when iterated returns the 1st lett
 then the first 2, then the first 3, all the way until it returns the whole word.
 You will probably need to make some sort of iterator before making your iterable.
 The default value for string should be 'hello world!'. 
-If you need to create any attributes make sure they are private/public as appropriate, and justiy your choice. 
+If you need to create any attributes make sure they are protected/private/public as appropriate, and justiy your choice. 
 
 Ex: PyramidIterable('cow') should return 'c', 'co', 'cow' then stop iterating. 
 
@@ -14,7 +14,7 @@ class PyramidIterator:
     def __init__(self,string:str):
         self._letters = string
         self._index = 1
-        # private attributes since this iterator will be inside an iterable, and should happen behind the scenes only
+        # protected attributes since this iterator will be inside an iterable, and should happen behind the scenes only
     def __iter__(self):
         return self
     def __next__(self):
